@@ -63,3 +63,18 @@ end
     gossip_id: rand((Gossip.first.id)..(Gossip.last.id))
   )
 end
+
+20.times do
+  randomizer = rand(1..2)
+  if randomizer.modulo(2) == 0
+    like =  Like.create(
+      likeable_type: "Comment",
+      likeable_id: rand((Comment.first.id)..(Comment.last.id))
+    )
+  else
+    like =  Like.create(
+      likeable_type: "Gossip",
+      likeable_id: rand((Gossip.first.id)..(Gossip.last.id))
+    )
+  end
+end
