@@ -68,11 +68,13 @@ end
   randomizer = rand(1..2)
   if randomizer.modulo(2) == 0
     like =  Like.create(
+      user_id: rand((User.first.id)..(User.last.id)),
       likeable_type: "Comment",
       likeable_id: rand((Comment.first.id)..(Comment.last.id))
     )
   else
     like =  Like.create(
+      user_id: rand((User.first.id)..(User.last.id)),
       likeable_type: "Gossip",
       likeable_id: rand((Gossip.first.id)..(Gossip.last.id))
     )
